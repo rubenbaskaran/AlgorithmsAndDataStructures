@@ -1,9 +1,12 @@
 /* Anagrams */
 
-console.log(Anagrams("!r!u!b!e!n!e!", " u b n e r e ! "));
+console.log(Anagrams("!r!u!b!e!n!e!", " u b n e R e ! "));
 
-function Anagrams(stringOne, stringTwo)
+function Anagrams(inputOne, inputTwo)
 {
+    var stringOne = inputOne.toLowerCase();
+    var stringTwo = inputTwo.toLowerCase();
+    
     var characterCountingObjectOne = {};
     var characterCountingObjectTwo = {};
 
