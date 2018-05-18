@@ -1,6 +1,6 @@
 /* Anagrams */
 
-console.log(Anagrams("u!b!r   b", "r u b b"));
+console.log(Anagrams("abcba", "bcaab"));
 
 function Anagrams(inputOne, inputTwo)
 {
@@ -10,12 +10,12 @@ function Anagrams(inputOne, inputTwo)
     var characterCountingObjectTwo = {};
 
     // Populate character counting objects with stringOne and stringTwo
-    PopulateCharacterCountingObject(characterCountingObjectOne, stringOne);    
+    PopulateCharacterCountingObject(characterCountingObjectOne, stringOne);
     PopulateCharacterCountingObject(characterCountingObjectTwo, stringTwo);
 
     // Compare character counting objects with stringOne and stringTwo
-    if (!CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo, stringOne) ||
-        !CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo, stringTwo))
+    if (!CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo) ||
+        !CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo))
     {
         return false;
     }
@@ -38,10 +38,10 @@ function PopulateCharacterCountingObject(characterCountingObjectOne, string)
     }
 }
 
-function CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo, string)
+function CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo)
 {
-    for (var character of string)
-    {        
+    for (var character in characterCountingObjectOne)
+    {
         if (character == " " || character == "!")
         {
             continue;
