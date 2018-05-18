@@ -1,17 +1,31 @@
 /* Anagrams */
 
-console.log(Anagrams("!r!u!b!e!n!e!", " u b n e R e ! "));
+console.log(Anagrams("u!b!r   b", "r u b b"));
 
 function Anagrams(inputOne, inputTwo)
 {
     var stringOne = inputOne.toLowerCase();
     var stringTwo = inputTwo.toLowerCase();
-    
     var characterCountingObjectOne = {};
     var characterCountingObjectTwo = {};
 
-    // Create character counting object for stringOne
-    for (var character of stringOne)
+    // Populate character counting objects with stringOne and stringTwo
+    PopulateCharacterCountingObject(characterCountingObjectOne, stringOne);    
+    PopulateCharacterCountingObject(characterCountingObjectTwo, stringTwo);
+
+    // Compare character counting objects with stringOne and stringTwo
+    if (!CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo, stringOne) ||
+        !CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo, stringTwo))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+function PopulateCharacterCountingObject(characterCountingObjectOne, string)
+{
+    for (var character of string)
     {
         if (!characterCountingObjectOne[character])
         {
@@ -22,45 +36,18 @@ function Anagrams(inputOne, inputTwo)
             characterCountingObjectOne[character] = characterCountingObjectOne[character] + 1;
         }
     }
+}
 
-    // Create character counting object for stringTwo
-    for (var character of stringTwo)
-    {
-        if (!characterCountingObjectTwo[character])
-        {
-            characterCountingObjectTwo[character] = 1;
-        }
-        else
-        {
-            characterCountingObjectTwo[character] = characterCountingObjectTwo[character] + 1;
-        }
-    }
-
-    // Compare character counting object for stringOne with equivalent for stringTwo
-    for (var character of stringOne)
-    {
-        // Ignore spaces and exclamation marks
+function CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo, string)
+{
+    for (var character of string)
+    {        
         if (character == " " || character == "!")
         {
             continue;
         }
 
         if (characterCountingObjectOne[character] != characterCountingObjectTwo[character])
-        {
-            return false;
-        }
-    }
-
-    // Compare character counting object for stringTwo with equivalent for stringOne
-    for (var character of stringTwo)
-    {
-        // Ignore spaces and exclamation marks
-        if (character == " " || character == "!")
-        {
-            continue;
-        }
-
-        if (characterCountingObjectTwo[character] != characterCountingObjectOne[character])
         {
             return false;
         }
