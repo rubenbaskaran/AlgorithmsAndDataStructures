@@ -1,6 +1,6 @@
 /* Anagrams */
 
-console.log(Anagrams("abcba", "bcaab"));
+console.log(Anagrams("abcbefa", "bcaafbe"));
 
 function Anagrams(inputOne, inputTwo)
 {
@@ -13,9 +13,9 @@ function Anagrams(inputOne, inputTwo)
     PopulateCharacterCountingObject(characterCountingObjectOne, stringOne);
     PopulateCharacterCountingObject(characterCountingObjectTwo, stringTwo);
 
-    // Compare character counting objects with stringOne and stringTwo
+    // Compare character counting objects
     if (!CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo) ||
-        !CompareCharacterCountingObjects(characterCountingObjectOne, characterCountingObjectTwo))
+        !CompareCharacterCountingObjects(characterCountingObjectTwo, characterCountingObjectOne))
     {
         return false;
     }
