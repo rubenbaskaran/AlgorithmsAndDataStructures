@@ -4,11 +4,12 @@ Vowels("This Is A Test String");
 
 function Vowels(string)
 {
-    counter = 0;    
+    counter = 0;
+    var arrayOfVowels = ['a', 'e', 'i', 'o', 'u'];
+    
     for (var char of string.toLowerCase())
     {
-        if (char == "a" || char == "e" ||
-            char == "i" || char == "o" || char == "u")
+        if (arrayOfVowels.includes(char))
         {
             counter++;
         }
