@@ -9,12 +9,12 @@ function Steps(numberOfSteps)
     {
         for (var j = 0; j < i; j++)
         {
-            outputString == "" ? outputString = "#" : outputString += "#";
+            outputString += "#";
         }
 
         for (var k = 0; k < numberOfSteps - i; k++)
         {
-            outputString == "" ? outputString = " " : outputString += " ";
+            outputString += " ";
         }
 
         console.log("'" + outputString + "'");
