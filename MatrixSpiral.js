@@ -20,46 +20,41 @@ function DrawMatrixSpiral(n)
 
     while (counter <= maxCounter)
     {
-        // Horizontal to the right
-        var x = startColumn;
-        while (x <= endColumn)
+        // Horizontal to the right        
+        for (var x = startColumn; x <= endColumn; x++)
         {
             matrixArray[startRow][x] = counter;
-            counter++;
-            x++;
+            counter++;            
         }
         startRow++;
 
-        // Vertical to the bottom
-        var y = startRow;
-        while (y <= endRow)
+        // Vertical to the bottom        
+        for (var x = startRow; x <= endRow; x++)
         {
-            matrixArray[y][endRow] = counter;
-            counter++;
-            y++;
+            matrixArray[x][endRow] = counter;
+            counter++;            
         }
         endColumn--;
 
-        // Horizontal to the left
-        var z = endColumn;
-        while (z >= startColumn)
+        // Horizontal to the left        
+        for (var x = endColumn; x >= startColumn; x--)
         {
-            matrixArray[endRow][z] = counter;
-            counter++;
-            z--;
+            matrixArray[endRow][x] = counter;
+            counter++;            
         }
         endRow--;
 
-        // Vertical to the top    
-        var v = endRow;
-        while (v >= startRow)
+        // Vertical to the top            
+        for (var x = endRow; x >= startRow; x--)
         {
-            matrixArray[v][startColumn] = counter;
-            counter++;
-            v--;
+            matrixArray[x][startColumn] = counter;
+            counter++;            
         }
         startColumn++;
     }
 
-    console.log(matrixArray);
+    for(var array of matrixArray)
+    {
+        console.log(array);
+    }    
 }
