@@ -1,4 +1,5 @@
 /* Queue */
+/* First In First Out */
 
 class Queue
 {
