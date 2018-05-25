@@ -15,12 +15,12 @@ class Stack
 
     Pop()
     {
-        this.stack.pop();
+        return this.stack.pop();
     }
 
     Peek()
     {
-        return this.stack[this.stack.length-1];
+        return this.stack[this.stack.length - 1];
     }
 
     Print()
