@@ -1,2 +1,2 @@
 # AlgorithmsAndDataStructures
-Practicing algorithms and data structures.
+Practicing algorithms and data structures in JavaScript.
